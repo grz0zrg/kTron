@@ -1,0 +1,21 @@
+{
+    "name": "kTron",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "display":      "fullscreen",
+    "orientation":  "landscape",
+    "content_security_policy": "default-src 'self' https://* http://* data: gap: https://ssl.gstatic.com; connect-src 'self' wss://www.onirom.fr:2891 https://*.gamedistribution.com http://* https://*; style-src 'self' 'unsafe-inline' 'unsafe-eval'; media-src *",
+    "description": "Free single / multiplayer 3D arcade racing game",
+    "icons": {
+        "36": "icons/icon-36-ldpi.png",
+        "48": "icons/icon-48-mdpi.png",
+        "72": "icons/icon-78-hdpi.png",
+        "96": "icons/icon-96-xhdpi.png",
+        "144": "icons/icon-144-xxhdpi.png",
+        "192": "icons/icon-192-xxxhdpi.png",
+    },
+    "permissions": [
+        "geolocation",
+        "storage"
+    ]
+}

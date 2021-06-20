@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+        <meta name="Keywords" content="game,racing,play,race,car,mobile,android,arcade,3d,cube,online,multiplyer,2 players,single,free,tron,80s,retrowave,synthwave,neon,style,snake,retro,oldschool">
+        <meta name="Description" content="Free single / multiplayer 3D arcade racing game">
+		<meta name="Author" content="Julien Verneuil">
+	<!--
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://* http://* data: gap: https://ssl.gstatic.com; connect-src 'self' wss://www.onirom.fr:2891 https://*.gamedistribution.com http://* https://*; style-src 'self' 'unsafe-inline' 'unsafe-eval'; media-src *">
+	-->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="kTron" />
+        <meta name="twitter:description" content="Play free single / multiplayer 3D arcade racing game" />
+        <meta name="twitter:image" content="https://www.onirom.fr/get/kTron/social.jpg"/>
+
+        <meta property="og:url" content="https://www.onirom.fr/get/kTron/index.html" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="kTron" />
+        <meta property="og:description" content="Play free single / multiplayer 3D arcade racing game" />
+		<meta property="og:image" content="https://www.onirom.fr/get/kTron/social.jpg" />
+
+		<link rel="shortcut icon" type="image/png" href="favicon.png" />
+
+		<title>kTron - single / multiplayer 3D arcade racing game</title>
+
+		<link href="index.min.css" rel="stylesheet" type="text/css" />
+		
+<!--
+		<script type="text/javascript" src="cordova.js"></script>
+-->
+        <script type="text/javascript" src="index.min.js"></script>
+	</head>
+	<body>
+		<div id="curtain" class="curtain"></div>
+		<div id="menu" class="menu">
+			<!--<a class="fork-me" href="https://github.com/grz0zrg/kTron" rel="noopener"><img src="data/fork_me.png" alt="Fork me on GitHub" data-canonical-src="data/fork_me.png"></a>-->
+			<div class="triangle"></div>
+			<div class="title">kTron</div>
+			<div id="waiting" class="waiting" style="display: none">waiting for players...</div>
+			<div id="play_btn" class="play">1 player</div>
+			<div id="play2_btn" class="play" style="top: 50%">2 players (online)</div>
+			<div id="settings_btn" class="play" style="top: 60%">
+				settings
+			</div>
+			<div id="settings" class="list_container" style="display: none">
+				<div id="mute_mus">Music <span class="on">On</span></div>
+				<div id="mute_sfx">SFX <span class="on">On</span></div>
+				<div id="mute_vib">Vibrate <span class="on">On</span></div>
+				<div id="menu_btn">Exit settings</div>
+			</div>
+			<div class="help">
+				Avoid car and trails.<br/>Change direction with arrow keys or a tap.
+			</div>
+			<div class="credits">
+				Made by <a href="https://www.onirom.fr">Onirom Productions</a>
+			</div>
+		</div>
+		<div id="result" class="result"></div>
+		<div id="score" class="score"></div>
+		<div id="latency" class="latency" style="display: none"></div>
+	</body>
+</html>

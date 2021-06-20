@@ -1,0 +1,2 @@
+#!/bin/sh
+python pynut.py js/app_index.js css/app_index.css html/app_index.html
