@@ -1,7 +1,7 @@
 # kTron
 =====
 
-[<img src="http://i3.ytimg.com/vi/nq9zLgVfQxQ/maxresdefault.jpg" width="50%">](https://youtu.be/nq9zLgVfQxQ)
+[<img src="http://i3.ytimg.com/vi/nq9zLgVfQxQ/hqdefault.jpg" width="50%">](https://youtu.be/nq9zLgVfQxQ)
 
 Fast-paced 3D racing game on a cube with gameplay similar to Snake / Tron (1982): control a car on a cube faces, avoid opponent and survive the longest.
 
