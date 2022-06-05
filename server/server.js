@@ -108,6 +108,10 @@ wsServer.on('request', function(request) {
 
     clients.push(client)
 
+    if (clients.length > 1) {
+        ServerEngine.updateState('processing')
+    }
+
     logger.info("Connection accepted. Clients connected: %s", clients.length)
 
     connection.on('message', function(message) {
@@ -137,7 +141,7 @@ wsServer.on('request', function(request) {
                         client.cube_side.y = message.binaryData.readFloatLE(36)
                         client.cube_side.z = message.binaryData.readFloatLE(40)
 
-                        var buffer = new Buffer(4 + 4 * 10)
+                        var buffer = Buffer.alloc(4 + 4 * 10)
                         buffer.writeFloatLE(packet.UPDATE, 0)
                         buffer.writeFloatLE(client.delta, 4)
                         buffer.writeFloatLE(client.position.x, 4 * 2)
@@ -163,7 +167,7 @@ wsServer.on('request', function(request) {
 
                             var type = message.binaryData.readFloatLE(4)
 
-                            var buffer = new Buffer(8)
+                            var buffer = Buffer.alloc(8)
                             buffer.writeFloatLE(packet.COLLIDE, 0)
                             buffer.writeFloatLE(type, 4)
                             client.opponent.socket.sendBytes(buffer);
@@ -171,7 +175,7 @@ wsServer.on('request', function(request) {
                             logger.info("Client %s collided with client %s or a trail.", client.id, client.opponent.id)
 
                             if (type === 2) {
-                                var buffer = new Buffer(8)
+                                var buffer = Buffer.alloc(8)
                                 buffer.writeFloatLE(packet.SCORE, 0)
                                 buffer.writeFloatLE(1, 4)
                                 client.opponent.socket.sendBytes(buffer);
@@ -232,7 +236,7 @@ wsServer.on('request', function(request) {
 
         try {
             if (client.opponent) {
-                var buffer = new Buffer(4)
+                var buffer = Buffer.alloc(4)
                 buffer.writeFloatLE(packet.LOBBY, 0)
                 client.opponent.socket.sendBytes(buffer);
             }
@@ -241,6 +245,10 @@ wsServer.on('request', function(request) {
         }
 
         clients.splice(client.id, 1)
+
+        if (clients.length <= 1) {
+            ServerEngine.updateState('wait')
+        }
 
         lobby = []
 
@@ -266,7 +274,7 @@ function sendMessage(client, id, data) {
         data_len = data.length
     }
 
-    var buffer = new Buffer(4 + data_len * 4)
+    var buffer = Buffer.alloc(4 + data_len * 4)
     buffer.writeFloatLE(id, 0)
 
     if (data) {
